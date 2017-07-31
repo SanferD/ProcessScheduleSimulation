@@ -1,0 +1,26 @@
+Requirements:
+	Tested only on ubuntu. Needs c++11.
+
+To compile:
+	make
+
+To run:
+	./main [options=<values>]
+
+	./main --file_name=<input-file>
+		will run the processes in test_file. The Gantt Chart will print out in the file called output-<test_file>. Slashed are replaced by '-'.
+
+	./main --file_name=<input-file> --user_quantum=<uq> --kernel_quantum=<kq> --scheduler=<protocol>
+		will run the processes with user time-quantum=uq, kernel time-quantum=kq, and scheduler=protocol. The options for schedulers are {fifo, sjf, priority, edf}.
+
+	./main --help
+		to see all available options
+
+	The --interactive flag will start an interactive session. Check it out on small inputs. You don't get to give any input, but you can step through each clock cycle and see how the processes progress.
+Sample output:
+	************* STATS *************
+	NP: 99700
+	AWT: 2511263.970
+	ATT: 2516311.439
+
+	And the Gantt-chart is found in 'output-<file-name>'. Slashes in the input filename are replaced with '-' in the output filename. The output file is stored in the same directory as the executable.
